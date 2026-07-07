@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitação de Adaptação de Provas · NACE UNICID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <a class="pular-conteudo" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho-site">
+    <div class="cabecalho-conteudo">
+      <div class="marca-nace">
+        <img class="marca-icone" src="nace-logo.png" alt="NACE · Núcleo de Acessibilidade — UNICID" width="56" height="56">
+        <img class="marca-unicid" src="unicid-logo.png" alt="UNICID · Universidade Cidade de São Paulo" width="150">
+      </div>
+      <p class="marca-selo">
+        <span class="selo-ponto" aria-hidden="true"></span>
+        NACE · Núcleo de Acessibilidade
+      </p>
+    </div>
+  </header>
+
+  <main id="conteudo-principal" class="conteudo-principal">
+
+    <section class="secao-introducao" aria-labelledby="titulo-introducao">
+      <span class="etiqueta-pagina">Solicitação de adaptação de provas</span>
+      <h1 id="titulo-introducao" class="titulo-introducao">Sua prova preparada do jeito que você precisa</h1>
+      <p class="descricao-introducao">Preencha o formulário com seus dados, o curso e suas necessidades de
+        acessibilidade. O NACE recebe a solicitação e organiza o local e os recursos antes do dia da avaliação.</p>
+
+      <ol class="lista-etapas">
+        <li class="etapa">
+          <span class="numero-etapa" aria-hidden="true">1</span>
+          <div class="etapa-texto">
+            <p class="etapa-titulo">Cadastre a solicitação</p>
+            <p class="etapa-descricao">Aluno, curso e necessidades.</p>
+          </div>
+        </li>
+        <li class="etapa">
+          <span class="numero-etapa" aria-hidden="true">2</span>
+          <div class="etapa-texto">
+            <p class="etapa-titulo">NACE prepara o local</p>
+            <p class="etapa-descricao">Sala, recursos e equipe.</p>
+          </div>
+        </li>
+        <li class="etapa">
+          <span class="numero-etapa" aria-hidden="true">3</span>
+          <div class="etapa-texto">
+            <p class="etapa-titulo">Você é avisado</p>
+            <p class="etapa-descricao">Confirmação por e-mail.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <form class="formulario-nace" action=" " method="post" aria-label="Formulário de solicitação de adaptação de provas"
+      aria-describedby="nota-obrigatorio" novalidate>
+
+      <fieldset class="secao-formulario">
+        <legend class="titulo-secao"><span class="numero-secao" aria-hidden="true">1</span> Dados do aluno</legend>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="nome-completo">Nome completo <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="text" id="nome-completo" name="nome-completo" placeholder="Seu nome"
+            autocomplete="name" required aria-required="true" aria-describedby="nota-obrigatorio">
+        </div>
+
+        <div class="grade-campos grade-campos-2">
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="ra-matricula">RA / Matrícula <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="text" id="ra-matricula" name="ra-matricula" placeholder="Ex: 20231234"
+              required aria-required="true" aria-describedby="nota-obrigatorio">
+          </div>
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="email-aluno">E-mail <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="email" id="email-aluno" name="email-aluno"
+              placeholder="voce@aluno.unicid.edu.br" autocomplete="email" required aria-required="true"
+              aria-describedby="nota-obrigatorio">
+          </div>
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="telefone-aluno">Telefone <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="tel" id="telefone-aluno" name="telefone-aluno" placeholder="(11) 90000-0000"
+            autocomplete="tel" required aria-required="true" aria-describedby="nota-obrigatorio">
+        </div>
+      </fieldset>
+
+      <fieldset class="secao-formulario">
+        <legend class="titulo-secao"><span class="numero-secao" aria-hidden="true">2</span> Dados acadêmicos e da prova
+        </legend>
+
+        <div class="grade-campos grade-campos-3">
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="curso">Curso <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <select class="campo-select" id="curso" name="curso" required aria-required="true"
+              aria-describedby="nota-obrigatorio">
+              <option value="" selected disabled>Selecione</option>
+              <option>ADMINISTRAÇÃO</option>
+              <option>ARQUITETURA E URBANISMO</option>
+              <option>BIOMEDICINA</option>
+              <option>CIÊNCIA DA COMPUTAÇÃO</option>
+              <option>CIÊNCIAS BIOLÓGICAS</option>
+              <option>CIÊNCIAS CONTÁBEIS</option>
+              <option>CIÊNCIAS ECONÔMICAS</option>
+              <option>CST EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS</option>
+              <option>CST EM COMÉRCIO EXTERIOR</option>
+              <option>CST EM DESIGN DE INTERIORES</option>
+              <option>CST EM DESIGN GRÁFICO</option>
+              <option>CST EM GESTÃO COMERCIAL</option>
+              <option>CST EM GESTÃO DA TECNOLOGIA DA INFORMAÇÃO</option>
+              <option>CST EM GESTÃO DE RECURSOS HUMANOS</option>
+              <option>CST EM GESTÃO FINANCEIRA</option>
+              <option>CST EM LOGÍSTICA</option>
+              <option>CST EM MARKETING</option>
+              <option>CST EM RADIOLOGIA</option>
+              <option>DIREITO</option>
+              <option>EDUCAÇÃO FÍSICA (ABI)</option>
+              <option>EDUCAÇÃO FÍSICA (BACHARELADO)</option>
+              <option>EDUCAÇÃO FÍSICA (LICENCIATURA)</option>
+              <option>ENFERMAGEM</option>
+              <option>ENGENHARIA CIVIL</option>
+              <option>ENGENHARIA DE PRODUÇÃO</option>
+              <option>ENGENHARIA DE SOFTWARE</option>
+              <option>ENGENHARIA ELÉTRICA</option>
+              <option>ENGENHARIA MECÂNICA</option>
+              <option>ENGENHARIA MECATRÔNICA</option>
+              <option>FARMÁCIA</option>
+              <option>FISIOTERAPIA</option>
+              <option>FONOAUDIOLOGIA</option>
+              <option>HISTÓRIA (LICENCIATURA)</option>
+              <option>LETRAS - PORTUGUÊS E INGLÊS (LICENCIATURA)</option>
+              <option>MEDICINA</option>
+              <option>MEDICINA VETERINÁRIA</option>
+              <option>NUTRIÇÃO</option>
+              <option>ODONTOLOGIA</option>
+              <option>PEDAGOGIA</option>
+              <option>PSICOLOGIA</option>
+              <option>PUBLICIDADE E PROPAGANDA</option>
+              <option>SERVIÇO SOCIAL</option>
+            </select>
+          </div>
+
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="coordenador-curso">Coordenador do curso <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <select class="campo-select" id="coordenador-curso" name="coordenador-curso" required aria-required="true"
+              aria-describedby="nota-obrigatorio">
+              <option value="" selected disabled>Selecione</option>
+              <option>CAMILLA DE PAULA PEREIRA UZAM</option>
+              <option>CELIA REGINA GAZOTI DEBESSA</option>
+              <option>CLAUDIO FROES DE FREITAS</option>
+              <option>DENISE BALLESTER</option>
+              <option>EDUARDO GANYMEDES COSTA</option>
+              <option>EDVANIA HELENICE DANTAS COMITRE</option>
+              <option>EVELYN CAMPONUCCI CASSILLO ROSA</option>
+              <option>FELIPE VIDAL LOURENÇO</option>
+              <option>FERNANDA ABDULACK LOPES</option>
+              <option>JACQUELINE MAZZONI</option>
+              <option>JOÃO CARLOS CORREA</option>
+              <option>KATIA CRISTINA ANDRADE</option>
+              <option>LUCIANE COSTA DALBONI</option>
+              <option>ROBERTO GIMENEZ</option>
+              <option>SIMONE SPERANÇA</option>
+              <option>SONIA MARIA MENEZES MARTINHO</option>
+              <option>TATIANA DA SILVA HORTELANO VIECO</option>
+              <option>WAGNER PAGLIATO</option>
+              <option>WANA YEDA PARANHOS</option>
+              <option>WANDERLEY GONÇALVES</option>
+              <option>NÃO SEI INFORMAR</option>
+            </select>
+          </div>
+
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="semestre">Semestre <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <select class="campo-select" id="semestre" name="semestre" required aria-required="true"
+              aria-describedby="nota-obrigatorio">
+              <option value="" selected disabled>Selecione</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grade-campos grade-campos-3">
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="disciplina">Disciplina / Matéria <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="text" id="disciplina" name="disciplina" placeholder="Ex: Anatomia Humana"
+              required aria-required="true" aria-describedby="nota-obrigatorio">
+          </div>
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="professor">Professor(a) <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="text" id="professor" name="professor" placeholder="Nome do professor"
+              required aria-required="true" aria-describedby="nota-obrigatorio">
+          </div>
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="data-prova">Data da prova <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="date" id="data-prova" name="data-prova" required aria-required="true"
+              aria-describedby="nota-obrigatorio">
+          </div>
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="turno">Turno <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <select class="campo-select" id="turno" name="turno" required aria-required="true"
+            aria-describedby="nota-obrigatorio">
+            <option value="" selected disabled>Selecione</option>
+            <option>Matutino</option>
+            <option>Vespertino</option>
+            <option>Noturno</option>
+          </select>
+        </div>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Condição <span class="marcador-obrigatorio" aria-hidden="true">*</span><span
+              class="oculto-visualmente"> (obrigatório)</span></legend>
+          <div class="lista-checkbox-colunas">
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Altas habilidades"><span>Altas habilidades</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Baixa visão"><span>Baixa visão</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Cegueira"><span>Cegueira</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Dautonismo"><span>Dautonismo</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência auditiva"><span>Deficiência auditiva</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência Auditiva Unilateral"><span>Deficiência Auditiva Unilateral</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência Física"><span>Deficiência Física</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência Intelectual"><span>Deficiência Intelectual</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência Múltipla"><span>Deficiência Múltipla (descreva quais em observações)</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Deficiência Visual"><span>Deficiência Visual</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Depressão"><span>Depressão</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Discalculia"><span>Discalculia</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Dislexia"><span>Dislexia</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Epilepsia"><span>Epilepsia</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Esclerose Múltipla"><span>Esclerose Múltipla</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Mobilidade reduzida"><span>Mobilidade reduzida</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Obesidade"><span>Obesidade</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Parkinson"><span>Parkinson</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Síndrome de Asperger"><span>Síndrome de Asperger</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Síndrome de Borderline"><span>Síndrome de Borderline</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Síndrome de Burnout"><span>Síndrome de Burnout</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Síndrome de Rett"><span>Síndrome de Rett</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Surdez"><span>Surdez</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Surdocegueira"><span>Surdocegueira</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="TAG - Transtorno de Ansiedade Generalizada"><span>TAG - Transtorno de Ansiedade
+                Generalizada</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="TDAH - Transtorno do Déficit de Atenção e Hiperatividade"><span>TDAH - Transtorno do Déficit de
+                Atenção e Hiperatividade</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="TDI - Transtorno Desintegrativo da Infância"><span>TDI - Transtorno Desintegrativo da
+                Infância</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="TEA - Transtorno do Espectro Autista"><span>TEA - Transtorno do Espectro Autista</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="TPAC - Transtorno do Processamento Auditivo Central"><span>TPAC - Transtorno do Processamento
+                Auditivo Central</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" name="condicao"
+                value="Visão monocular"><span>Visão monocular</span></label>
+            <label class="opcao-checkbox"><input class="campo-checkbox" type="checkbox" id="condicao-outra-marcador"
+                name="condicao" value="Outra"><span>Outra</span></label>
+          </div>
+          <p id="condicao-ajuda" class="texto-ajuda">Marque todas as condições que se aplicam. Se marcar "Outra",
+            descreva no campo Observações.</p>
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="secao-formulario">
+        <legend class="titulo-secao"><span class="numero-secao" aria-hidden="true">3</span> Necessidades de
+          acessibilidade</legend>
+        <p class="texto-ajuda-secao">Marque todas as opções que se aplicam ao aluno em cada categoria. Se nenhuma se
+          aplicar, deixe a categoria sem marcações.</p>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Necessidades arquitetônicas</legend>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-arquitetonica"
+              value="Ensalamento em sala acessível ou em pavimento com elevador.">
+            <span>Ensalamento em sala acessível ou em pavimento com elevador.</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-arquitetonica"
+              value="Mobiliário inclusivo (mesa para cadeirante)">
+            <span>Mobiliário inclusivo (mesa para cadeirante)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-arquitetonica"
+              value="Mobiliário inclusivo (Carteira para estudante obeso)">
+            <span>Mobiliário inclusivo (Carteira para estudante obeso)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-arquitetonica"
+              value="Mobiliário inclusivo (Carteira identificada/reservada à frente)">
+            <span>Mobiliário inclusivo (Carteira identificada/reservada à frente)</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Necessidades comunicacionais</legend>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-comunicacional" value="Apoio de ledor">
+            <span>Apoio de ledor</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-comunicacional" value="Apoio de escriba">
+            <span>Apoio de escriba</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-comunicacional"
+              value="Intérprete de Libras">
+            <span>Intérprete de Libras</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-comunicacional"
+              value="Disponibilização de materiais didáticos em formato acessível">
+            <span>Disponibilização de materiais didáticos em formato acessível (ex.: enviar slides antes das aulas;
+              utilizar fonte ampliada; imagens com descrição quando forem essenciais à compreensão etc.)</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Necessidades pedagógicas e avaliativas</legend>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Ambiente com menos estímulos">
+            <span>Ambiente com menos estímulos</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Apoio na organização dos estudos">
+            <span>Apoio na organização dos estudos</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Flexibilização de prazos">
+            <span>Flexibilização de prazos (necessidade de flexibilização em situações justificadas)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica" value="Prova adaptada">
+            <span>Prova adaptada</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Prova realizada no NAce/NAE (com fiscal)">
+            <span>Prova realizada no NAce/NAE (com fiscal)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Prova realizada no NAce/NAE (com ledor)">
+            <span>Prova realizada no NAce/NAE (com ledor)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Prova realizada no NAce/NAE (com escritor)">
+            <span>Prova realizada no NAce/NAE (com escritor)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Prova realizada no NAce/NAE (com transcritor – word)">
+            <span>Prova realizada no NAce/NAE (com transcritor – word)</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Tempo adicional em avaliações presenciais">
+            <span>Tempo adicional em avaliações presenciais</span>
+          </label>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-pedagogica"
+              value="Tempo adicional em avaliações online">
+            <span>Tempo adicional em avaliações online</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Necessidades tecnológicas</legend>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-tecnologica"
+              value="Recursos de tecnologia assistiva">
+            <span>Recursos de tecnologia assistiva (ex.: uso de notebook ou tablet durante as aulas e avaliações, quando
+              previsto no PEI; materiais compatíveis com leitores de tela; uso de ampliadores de tela, softwares de
+              leitura, teclado ou mouse adaptados, linhas Braille)</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="grupo-categoria">
+          <legend class="rotulo-categoria">Necessidades atitudinais</legend>
+          <label class="opcao-checkbox">
+            <input class="campo-checkbox" type="checkbox" name="necessidade-atitudinal"
+              value="Apoio na socialização acadêmica">
+            <span>Apoio na socialização acadêmica</span>
+          </label>
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="secao-formulario">
+        <legend class="oculto-visualmente">Informações complementares</legend>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="laudo">Laudo <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <select class="campo-select" id="laudo" name="laudo" required aria-required="true"
+            aria-describedby="nota-obrigatorio">
+            <option value="" selected disabled>Selecione</option>
+            <option>SIM</option>
+            <option>NÃO</option>
+            <option>EM INVESTIGAÇÃO</option>
+          </select>
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="observacoes">Observações</label>
+          <textarea class="campo-textarea" id="observacoes" name="observacoes"
+            placeholder="Conte qualquer detalhe que ajude o NACE a preparar seu atendimento (ex: laudo, restrição específica, descrição de 'Outra' condição)."></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset class="secao-formulario secao-final secao-privacidade">
+        <legend class="titulo-secao"><span class="numero-secao" aria-hidden="true">4</span> Privacidade e consentimento
+        </legend>
+
+        <details class="aviso-privacidade">
+          <summary class="aviso-privacidade-resumo">Como o NACE trata os seus dados (LGPD)</summary>
+          <div class="aviso-privacidade-texto">
+            <p>Este formulário coleta dados sobre sua condição, deficiência e/ou diagnóstico, considerados <strong>dados
+                pessoais sensíveis</strong> nos termos do art. 5º, inciso II, da Lei Geral de Proteção de Dados (LGPD –
+              Lei nº 13.709/2018).</p>
+            <p>Esses dados são tratados exclusivamente pelo NACE — Núcleo de Acessibilidade da UNICID — para organizar o
+              atendimento, o local da prova e os recursos de acessibilidade solicitados, com base no seu consentimento
+              e/ou na tutela da saúde e da inclusão educacional (art. 11 da LGPD).</p>
+            <p>Seus dados não são compartilhados fora da universidade sem autorização e ficam armazenados apenas pelo
+              tempo necessário ao atendimento. Você pode solicitar acesso, correção ou exclusão a qualquer momento pelo
+              e-mail <a class="link-privacidade" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a>.</p>
+          </div>
+        </details>
+
+        <div class="grupo-campo grupo-campo-checkbox">
+          <input class="campo-checkbox" type="checkbox" id="consentimento-lgpd" name="consentimento-lgpd" required
+            aria-required="true" aria-describedby="nota-obrigatorio">
+          <label class="rotulo-checkbox" for="consentimento-lgpd">Li e autorizo o tratamento dos meus dados sensíveis
+            (condição, deficiência e/ou diagnóstico) pelo NACE, para fins de organização do atendimento e das adaptações
+            solicitadas, conforme a LGPD (Lei nº 13.709/2018). <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+        </div>
+      </fieldset>
+
+      <div class="rodape-formulario">
+        <p id="nota-obrigatorio" class="nota-obrigatorio">Campos com <span aria-hidden="true">*</span> são obrigatórios.
+        </p>
+        <button class="botao-enviar" type="submit">Enviar solicitação ao NACE</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="rodape-site">
+    <p class="rodape-texto">NACE · Núcleo de Acessibilidade — UNICID · Universidade Cidade de São Paulo</p>
+    <p class="rodape-contato"><a class="rodape-link" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a></p>
+  </footer>
+
+</body>
+
+</html>
