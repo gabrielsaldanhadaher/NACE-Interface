@@ -30,20 +30,20 @@ const algumaMarcadaCondicao = Array.from(checkboxesCondicao).some(cb => cb.check
     return
   }
 
-  if (!rgm) {
-    alert('Preencha o campo RGM.')
+  if (rgm.length !== 8 && rgm !== '') {
+    alert('Preencha o campo RGM com 8 dígitos.')
     document.getElementById('ra-matricula').focus()
     return
   }
 
-  if (!email) {
-    alert('Preencha o campo E-mail.')
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { // o test() verifica se o email está no formato correto
+    alert('Preencha o campo E-mail com um endereço válido.')
     document.getElementById('email-aluno').focus()
     return
   }
 
-  if (!telefone) {
-    alert('Preencha o campo Telefone.')
+  if (telefone !== '' && telefone.length !== 11) {
+    alert('Preencha o campo Telefone com 11 dígitos.')
     document.getElementById('telefone-aluno').focus()
     return
   }

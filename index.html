@@ -79,22 +79,22 @@
             <label class="rotulo-campo" for="ra-matricula">RGM <span class="marcador-obrigatorio"
                 aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
             <input class="campo-texto" type="text" id="ra-matricula" name="ra-matricula" placeholder="Ex: 20231234"
-              required aria-required="true" aria-describedby="nota-obrigatorio">
+              required aria-required="true" aria-describedby="nota-obrigatorio" pattern="\d{0,8}" maxlength="8">
           </div>
           <div class="grupo-campo">
             <label class="rotulo-campo" for="email-aluno">E-mail <span class="marcador-obrigatorio"
                 aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
             <input class="campo-texto" type="email" id="email-aluno" name="email-aluno"
               placeholder="voce@aluno.unicid.edu.br" autocomplete="email" required aria-required="true"
-              aria-describedby="nota-obrigatorio">
+              aria-describedby="nota-obrigatorio" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
           </div>
         </div>
 
         <div class="grupo-campo">
           <label class="rotulo-campo" for="telefone-aluno">Telefone <span class="marcador-obrigatorio"
               aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
-          <input class="campo-texto" type="tel" id="telefone-aluno" name="telefone-aluno" placeholder="(11) 90000-0000"
-            autocomplete="tel" required aria-required="true" aria-describedby="nota-obrigatorio">
+          <input class="campo-texto" type="tel" id="telefone-aluno" name="telefone-aluno" placeholder="11900000000"
+            autocomplete="tel" required aria-required="true" aria-describedby="nota-obrigatorio" pattern="\d{0,11}" maxlength="11">
         </div>
       </fieldset>
 
