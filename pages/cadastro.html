@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primeiro acesso · NACE UNICID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/cadastro.css">
+</head>
+
+<body class="corpo-login">
+
+  <a class="pular-conteudo" href="#conteudo-login">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho-site">
+    <div class="cabecalho-conteudo">
+      <div class="marca-nace">
+        <img class="marca-icone" src="../assets/img/nace-logo.png" alt="NACE · Núcleo de Acessibilidade — UNICID" width="56" height="56">
+        <img class="marca-unicid" src="../assets/img/unicid-logo.png" alt="UNICID · Universidade Cidade de São Paulo" width="150">
+      </div>
+      <p class="marca-selo">
+        <span class="selo-ponto" aria-hidden="true"></span>
+        NACE · Núcleo de Acessibilidade
+      </p>
+    </div>
+  </header>
+
+  <main id="conteudo-login" class="conteudo-login">
+    <section class="cartao-login cartao-cadastro" aria-labelledby="titulo-cadastro">
+      <span class="etiqueta-pagina etiqueta-login">Primeiro acesso</span>
+      <h1 id="titulo-cadastro" class="titulo-login">Criar sua conta</h1>
+      <p class="descricao-login">Preencha seus dados para criar o acesso ao portal do NACE. Use o RGM informado pela
+        universidade.</p>
+
+      <form class="formulario-login" action=" " method="post" aria-label="Formulário de cadastro" novalidate>
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="nome">Nome completo <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="text" id="nome" name="nome" placeholder="Seu nome completo"
+            autocomplete="name" required aria-required="true">
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="rgm">RGM <span class="marcador-obrigatorio" aria-hidden="true">*</span><span
+              class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="text" id="rgm" name="rgm" placeholder="Ex: 20231234" inputmode="numeric"
+            autocomplete="username" required aria-required="true" required maxlength="8" oninput="this.value = this.value.replace(/\D/g, '')">
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="email">E-mail institucional <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="email" id="email" name="email" placeholder="nome@aluno.unicid.edu.br"
+            autocomplete="email" required aria-required="true" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="senha">Criar senha <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <div class="campo-senha">
+            <input class="campo-texto" type="password" id="senha" name="senha" placeholder="Mínimo de 8 caracteres"
+              autocomplete="new-password" minlength="8" required aria-required="true"
+              aria-describedby="dica-senha">
+            <button class="botao-ver-senha" type="button" aria-pressed="false"
+              aria-label="Mostrar senha">Mostrar</button>
+          </div>
+          <small id="dica-senha" class="dica-campo">Use pelo menos 8 caracteres, com letras e números.</small>
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="confirmar-senha">Confirmar senha <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Repita a senha"
+            autocomplete="new-password" minlength="8" required aria-required="true">
+        </div>
+
+        <button class="botao-enviar botao-login" type="submit">Criar conta</button>
+      </form>
+
+      <div class="acoes-login">
+        <span class="texto-login">Já tem conta?</span>
+        <a class="link-login" href="../index.html">Entrar</a>
+      </div>
+
+      <p class="ajuda-login">Precisa de ajuda? Escreva para
+        <a class="link-privacidade" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a>.</p>
+    </section>
+  </main>
+
+  <footer class="rodape-site">
+    <p class="rodape-texto">NACE · Núcleo de Acessibilidade — UNICID · Universidade Cidade de São Paulo</p>
+    <p class="rodape-contato"><a class="rodape-link" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var botao = document.querySelector('.botao-ver-senha');
+      var campo = document.getElementById('senha');
+      if (botao && campo) {
+        botao.addEventListener('click', function () {
+          var visivel = campo.type === 'text';
+          campo.type = visivel ? 'password' : 'text';
+          botao.textContent = visivel ? 'Mostrar' : 'Ocultar';
+          botao.setAttribute('aria-pressed', String(!visivel));
+          botao.setAttribute('aria-label', visivel ? 'Mostrar senha' : 'Ocultar senha');
+        });
+      }
+    })();
+  </script>
+  <script src="../assets/js/cadastro.js"></script>
+
+</body>
+
+</html>

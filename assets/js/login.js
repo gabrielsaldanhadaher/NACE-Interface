@@ -50,7 +50,6 @@ formLogin.addEventListener("submit", function (e) {
 
   // tudo ok
   alert("Login realizado com sucesso!");
+  formLogin.submit();
   window.location.href = "pages/solicitacao-prova.html";
-    }
-
-);
+});
