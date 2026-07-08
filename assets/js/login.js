@@ -18,11 +18,11 @@ formLogin.addEventListener("submit", function (e) {
         return;
     }
 
-      if (senhaLogin.length < 8 || senhaLogin.length > 16) {
-    alert("A senha deve ter entre 8 e 16 caracteres.");
-    document.getElementById("senha").focus();
-    return;
-  }
+    if (senhaLogin.length < 8 || senhaLogin.length > 16) {
+      alert("A senha deve ter entre 8 e 16 caracteres.");
+      document.getElementById("senha").focus();
+      return;
+    }
 
   if (!/[A-Z]/.test(senhaLogin)) {
     alert("A senha deve conter pelo menos uma letra maiúscula.");
@@ -50,7 +50,7 @@ formLogin.addEventListener("submit", function (e) {
 
   // tudo ok
   alert("Login realizado com sucesso!");
-  formLogin.submit();
+  window.location.href = "pages/solicitacao-prova.html";
     }
 
 );
