@@ -570,3 +570,11 @@ a {
     width: 100%;
   }
 }
+
+.campo-checkboxc {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.2rem;
+  accent-color: var(--cor-teal-escuro);
+}
