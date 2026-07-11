@@ -35,7 +35,7 @@
       <p class="descricao-login">Preencha seus dados para criar o acesso ao portal do NACE. Use o RGM informado pela
         universidade.</p>
 
-      <form class="formulario-login" action=" " method="post" aria-label="Formulário de cadastro" novalidate>
+      <form class="formulario-login" id="formulario-cadastro" action=" " method="post" aria-label="Formulário de cadastro" novalidate>
         <div class="grupo-campo">
           <label class="rotulo-campo" for="nome">Nome completo <span class="marcador-obrigatorio"
               aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
@@ -77,7 +77,7 @@
             autocomplete="new-password" minlength="8" required aria-required="true">
         </div>
 
-        <button class="botao-enviar botao-login" type="submit">Criar conta</button>
+        <button class="botao-enviar" id="botao-cadastro" type="submit">Criar conta</button>
       </form>
 
       <div class="acoes-login">
@@ -110,7 +110,7 @@
       }
     })();
   </script>
-  <script src="../assets/js/cadastro.js"></script>
+  <script type="module" src="../assets/js/cadastro.js"></script>
 
 </body>
 

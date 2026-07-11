@@ -1,3 +1,5 @@
+import { reqProva } from './APIs-POST.js'
+
 const form = document.querySelector('.formulario-nace')
 
 form.addEventListener('submit', function (e) {
@@ -15,6 +17,7 @@ form.addEventListener('submit', function (e) {
   const laudo = document.getElementById('laudo').value
   const data = document.getElementById('data-prova').value
   const consentimento = document.getElementById('consentimento-lgpd').checked
+  const observacoes = document.getElementById('observacoes').value.trim()
 
   // pelo menos um checkbox de necessidade marcado
   const checkboxes = document.querySelectorAll('.campo-checkbox[type="checkbox"]:not(#consentimento-lgpd)')
@@ -106,3 +109,9 @@ const algumaMarcadaCondicao = Array.from(checkboxesCondicao).some(cb => cb.check
   alert('Solicitação enviada com sucesso!')
   form.submit()
 })
+
+const btnSolicitar = document.getElementById("botaosolicitar");
+
+btnSolicitar.addEventListener("click", () => {
+  reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
+});

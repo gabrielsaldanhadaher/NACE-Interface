@@ -1,4 +1,6 @@
-const formCadastro = document.querySelector('.formulario-login');
+import { cadastroUsuario } from './APIs-POST.js';
+
+const formCadastro = document.getElementById('formulario-cadastro');
 
 if (formCadastro) {
     formCadastro.addEventListener('submit', function (e) {
@@ -74,3 +76,8 @@ if (formCadastro) {
         window.location.href = '../index.html';
     });
 }
+
+const btnCadastro = document.getElementById("botao-cadastro");
+btnCadastro.addEventListener("click", () => {
+    cadastroUsuario(nome, rgm, email, senha);
+});
