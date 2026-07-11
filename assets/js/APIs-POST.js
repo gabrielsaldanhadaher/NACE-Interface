@@ -53,11 +53,13 @@ export async function reqProva(nome, email, rgm, telefone, curso, coordenador, t
 
 }
 
-const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-in"
+// const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-up";
 
 export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastro, senha) {
 // const btnCadastrar = document.getElementById("btnCadastrar");
 // btnCadastrar.addEventListener("click", cadastrarUsuario);
+
+    const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-up"; // sign-up
 
     const usuario = {
         name: nome_completo,
@@ -67,6 +69,7 @@ export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastr
     };
 
     try {
+        console.log("Enviando requisição de cadastro:", usuario);
 
         const resposta = await fetch(URLC, {
 
@@ -84,14 +87,20 @@ export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastr
             throw new Error("Erro ao cadastrar.");
         }
 
+        if (resposta.status === 409) {
+            throw new Error("Usuário já cadastrado.");
+            return;
+        }
+
         const dados = await resposta.json();
 
         alert(dados.mensagem);
 
     } catch (erro) {
 
-        console.error(erro);
-        alert("Erro ao cadastrar usuário.");
+    console.error(erro);
+    alert("Erro ao cadastrar usuário.");
+    return;
 
     }
 

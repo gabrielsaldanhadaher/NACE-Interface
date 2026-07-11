@@ -1,9 +1,10 @@
 import { cadastroUsuario } from './APIs-POST.js';
 
 const formCadastro = document.getElementById('formulario-cadastro');
+const btnCadastro = document.getElementById("botao-cadastro");
 
 if (formCadastro) {
-    formCadastro.addEventListener('submit', function (e) {
+    formCadastro.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const nome = document.getElementById('nome').value.trim();
@@ -72,12 +73,12 @@ if (formCadastro) {
             return;
         }
 
-        alert('Cadastro realizado com sucesso!');
+        try {
+            await cadastroUsuario(nome, rgm, email, senha);
+        } catch (erro) {
+            console.error(erro);
+            return; // Impede a navegação para a página de login se houver erro
+        }
         window.location.href = '../index.html';
     });
 }
-
-const btnCadastro = document.getElementById("botao-cadastro");
-btnCadastro.addEventListener("click", () => {
-    cadastroUsuario(nome, rgm, email, senha);
-});

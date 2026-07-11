@@ -2,7 +2,7 @@ import { reqProva } from './APIs-POST.js'
 
 const form = document.querySelector('.formulario-nace')
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', async function (e) {
   e.preventDefault()
 
   // campos de texto obrigatórios
@@ -107,11 +107,12 @@ const algumaMarcadaCondicao = Array.from(checkboxesCondicao).some(cb => cb.check
 
   // tudo ok — aqui você envia o form
   alert('Solicitação enviada com sucesso!')
+  await reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
   form.submit()
 })
 
 const btnSolicitar = document.getElementById("botaosolicitar");
 
-btnSolicitar.addEventListener("click", () => {
-  reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
-});
+// btnSolicitar.addEventListener("click", () => {
+//   reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
+// });
