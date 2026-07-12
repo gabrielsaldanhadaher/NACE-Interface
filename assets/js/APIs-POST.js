@@ -1,9 +1,11 @@
 // const btnCadastrar = document.getElementById("botao-cadastro");
 
 // btnCadastrar.addEventListener("click", cadastroUsuario);
-const URLR = "http://localhost:3000/usuarios";
+
 
 export async function reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes) {
+
+    const URLR = "http://localhost:3000/usuarios";
 
     const requisicao = {
         nome: nome,
@@ -53,7 +55,6 @@ export async function reqProva(nome, email, rgm, telefone, curso, coordenador, t
 
 }
 
-// const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-up";
 
 export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastro, senha) {
 // const btnCadastrar = document.getElementById("btnCadastrar");
@@ -83,24 +84,25 @@ export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastr
 
         });
 
-        if (!resposta.ok) {
-            throw new Error("Erro ao cadastrar.");
+        if (resposta.status === 409) {
+            alert("Usuário já cadastrado.");
+            return false;
         }
 
-        if (resposta.status === 409) {
-            throw new Error("Usuário já cadastrado.");
-            return;
+        if (!resposta.ok) {
+            throw new Error(`Erro ao cadastrar usuário. Status: ${resposta.status}`);
         }
 
         const dados = await resposta.json();
 
-        alert(dados.mensagem);
+        alert(dados.mensagem || "Cadastro realizado com sucesso.");
+        return true;
 
     } catch (erro) {
 
-    console.error(erro);
-    alert("Erro ao cadastrar usuário.");
-    return;
+        console.error(erro);
+        alert(erro.message || "Erro ao cadastrar usuário.");
+        return false;
 
     }
 

@@ -1,4 +1,5 @@
 import { cadastroUsuario } from './APIs-POST.js';
+import { validateName, validateRGM, validateEmail, validatePassword, validatePasswordConfirmation } from './verify.js';
 
 const formCadastro = document.getElementById('formulario-cadastro');
 const btnCadastro = document.getElementById("botao-cadastro");
@@ -13,72 +14,39 @@ if (formCadastro) {
         const senha = document.getElementById('senha').value.trim();
         const confirmarSenha = document.getElementById('confirmar-senha').value.trim();
 
-        if (!nome) {
+        if (!validateName(nome)) {
             alert('Preencha o campo Nome.');
             document.getElementById('nome').focus();
             return;
         }
 
-        if (!rgm || rgm.length !== 8) {
+        if (!validateRGM(rgm)) {
             alert('Preencha o campo RGM com 8 dígitos.');
             document.getElementById('rgm').focus();
             return;
         }
 
-        if (!email || !/[^@\s]+@[^@\s]+\.[^@\s]+/.test(email)) {
+        if (!validateEmail(email)) {
             alert('Preencha o campo E-mail com um endereço válido.');
             document.getElementById('email').focus();
             return;
         }
 
-        if (!senha) {
-            alert('Preencha o campo Senha.');
+        if (!validatePassword(senha)) {
             document.getElementById('senha').focus();
             return;
         }
 
-        if (senha.length < 8 || senha.length > 16) {
-            alert('A senha deve ter entre 8 e 16 caracteres.');
-            document.getElementById('senha').focus();
-            return;
-        }
-
-        if (!/[A-Z]/.test(senha)) {
-            alert('A senha deve conter pelo menos uma letra maiúscula.');
-            document.getElementById('senha').focus();
-            return;
-        }
-
-        if (!/[a-z]/.test(senha)) {
-            alert('A senha deve conter pelo menos uma letra minúscula.');
-            document.getElementById('senha').focus();
-            return;
-        }
-
-        if (!/[0-9]/.test(senha)) {
-            alert('A senha deve conter pelo menos um número.');
-            document.getElementById('senha').focus();
-            return;
-        }
-
-        if (!/[^a-zA-Z0-9]/.test(senha)) {
-            alert('A senha deve conter pelo menos um caractere especial. Ex: @, #, !, $');
-            document.getElementById('senha').focus();
-            return;
-        }
-
-        if (senha !== confirmarSenha) {
+        if (!validatePasswordConfirmation(senha, confirmarSenha)) {
             alert('As senhas não coincidem.');
             document.getElementById('confirmar-senha').focus();
             return;
         }
 
-        try {
-            await cadastroUsuario(nome, rgm, email, senha);
-        } catch (erro) {
-            console.error(erro);
-            return; // Impede a navegação para a página de login se houver erro
+        const cadastroOk = await cadastroUsuario(nome, rgm, email, senha);
+
+        if (cadastroOk) {
+            window.location.href = '../index.html';
         }
-        window.location.href = '../index.html';
     });
 }

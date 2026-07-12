@@ -1,8 +1,24 @@
 import { reqProva } from './APIs-POST.js'
 
+import {
+  validateName,
+  validateRGM,
+  validateEmail,
+  validatePhone,
+  validateCourse,
+  validateCoordinator,
+  validateShift,
+  validateDate,
+  validateProfessor,
+  validateHealthCondition,
+  validateAccessibility,
+  validateLaudo,
+  validateConsent
+} from './verify.js'
+
 const form = document.querySelector('.formulario-nace')
 
-form.addEventListener('submit', async function (e) {
+form.addEventListener('submit', function (e) {
   e.preventDefault()
 
   // campos de texto obrigatórios
@@ -19,100 +35,90 @@ form.addEventListener('submit', async function (e) {
   const consentimento = document.getElementById('consentimento-lgpd').checked
   const observacoes = document.getElementById('observacoes').value.trim()
 
-  // pelo menos um checkbox de necessidade marcado
-  const checkboxes = document.querySelectorAll('.campo-checkbox[type="checkbox"]:not(#consentimento-lgpd)')
-  const algumaMarcada = Array.from(checkboxes).some(cb => cb.checked)
+  const checkboxesNecessidade = document.querySelectorAll('input[type="checkbox"][name^="necessidade-"]')
+  const algumaMarcada = Array.from(checkboxesNecessidade).some(cb => cb.checked)
 
-const checkboxesCondicao = document.querySelectorAll('input[name="condicao"]')
-const algumaMarcadaCondicao = Array.from(checkboxesCondicao).some(cb => cb.checked)
+  const checkboxesCondicao = document.querySelectorAll('input[name="condicao"]')
+  const algumaMarcadaCondicao = Array.from(checkboxesCondicao).some(cb => cb.checked)
 
-    //validações
-  if (!nome) {
+  if (!validateName(nome)) {
     alert('Preencha o campo Nome completo.')
     document.getElementById('nome-completo').focus()
     return
   }
 
-  if (rgm.length !== 8 && rgm !== '') {
+  if (!validateRGM(rgm)) {
     alert('Preencha o campo RGM com 8 dígitos.')
     document.getElementById('ra-matricula').focus()
     return
   }
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { // o test() verifica se o email está no formato correto
+  if (!validateEmail(email)) {
     alert('Preencha o campo E-mail com um endereço válido.')
     document.getElementById('email-aluno').focus()
     return
   }
 
-  if (telefone !== '' && telefone.length !== 11) {
+  if (!validatePhone(telefone)) {
     alert('Preencha o campo Telefone com 11 dígitos.')
     document.getElementById('telefone-aluno').focus()
     return
   }
 
-  if (!curso) {
+  if (!validateCourse(curso)) {
     alert('Selecione o seu Curso.')
     document.getElementById('curso').focus()
     return
   }
 
-    if (!coordenador) {
+  if (!validateCoordinator(coordenador)) {
     alert('Preencha o campo Coordenador do curso.')
     document.getElementById('coordenador-curso').focus()
     return
   }
 
-  if (!turno) {
+  if (!validateShift(turno)) {
     alert('Selecione o seu Turno.')
     document.getElementById('turno').focus()
     return
   }
 
-  if (!data) {
+  if (!validateDate(data)) {
     alert('Preencha o campo Data da prova.')
     document.getElementById('data-prova').focus()
     return
   }
 
-    if (!professor) {
+  if (!validateProfessor(professor)) {
     alert('Preencha o campo Professor.')
     document.getElementById('professor').focus()
     return
   }
 
-  if (!algumaMarcadaCondicao) {
+  if (!validateHealthCondition(algumaMarcadaCondicao)) {
     alert('Selecione pelo menos uma condição de saúde.')
     return
   }
 
-  if (!algumaMarcada) {
+  if (!validateAccessibility(algumaMarcada)) {
     alert('Selecione pelo menos uma necessidade de acessibilidade.')
     return
   }
 
-
-
-  if (!laudo) {
+  if (!validateLaudo(laudo)) {
     alert('Selecione se possui Laudo.')
     document.getElementById('laudo').focus()
     return
   }
 
-  if (!consentimento) {
+  if (!validateConsent(consentimento)) {
     alert('Você precisa aceitar o termo de consentimento da LGPD para enviar.')
     document.getElementById('consentimento-lgpd').focus()
     return
   }
 
   // tudo ok — aqui você envia o form
-  alert('Solicitação enviada com sucesso!')
+  alert('Solicitação enviada com sucesso!');
   await reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
-  form.submit()
+  form.submit();
 })
-
-const btnSolicitar = document.getElementById("botaosolicitar");
-
-// btnSolicitar.addEventListener("click", () => {
-//   reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
-// });
