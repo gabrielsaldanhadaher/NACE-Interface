@@ -39,7 +39,7 @@ export async function reqProva(nome, email, rgm, telefone, curso, coordenador, t
         });
 
         if (!resposta.ok) {
-            throw new Error("Erro ao cadastrar.");
+            throw new Error("Erro ao realizar a requisição.");
         }
 
         const dados = await resposta.json();
@@ -60,7 +60,7 @@ export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastr
 // const btnCadastrar = document.getElementById("btnCadastrar");
 // btnCadastrar.addEventListener("click", cadastrarUsuario);
 
-    const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-up"; // sign-up
+    const URLC = "https://speech-huddle-caucus.ngrok-free.dev/sign-up";
 
     const usuario = {
         name: nome_completo,
@@ -105,5 +105,48 @@ export async function cadastroUsuario(nome_completo, rgm_cadastro, email_cadastr
         return false;
 
     }
+
+};
+
+export async function loginUsuario(email_login, senha_login) {
+    
+    const URLL = "https://speech-huddle-caucus.ngrok-free.dev/sign-in";
+
+    const login = {
+        email: email_login,
+        password: senha_login
+    };
+
+    try{
+        console.log("Enviando requisição de login:", login);
+
+        const resposta = await fetch(URLL, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(login)
+        });
+
+        if (!resposta.ok){
+            throw new Error(`Erro ao realizar login. Status: ${resposta.status}`);
+        }
+
+        const dados = await resposta.json();
+
+        alert(dados.mensagem || "Login realizado com sucesso.");
+        return true;
+
+    } catch (erro) {
+
+        console.error(erro);
+        alert(erro.message || "Erro ao realizar login.");
+        return false;
+
+    };
+
 
 };

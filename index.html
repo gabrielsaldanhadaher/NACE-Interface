@@ -32,13 +32,14 @@
     <section class="cartao-login" aria-labelledby="titulo-login">
       <span class="etiqueta-pagina etiqueta-login">Acesso ao portal</span>
       <h1 id="titulo-login" class="titulo-login">Entrar no portal do NACE</h1>
-      <p class="descricao-login">Use o seu RGM e a senha para acessar as solicitações de adaptação de provas.</p>
+      <p class="descricao-login">Use o seu e-mail e a senha para acessar as solicitações de adaptação de provas.</p>
 
       <form class="formulario-login" action=" " method="post" aria-label="Formulário de acesso" novalidate>
         <div class="grupo-campo">
-          <label class="rotulo-campo" for="rgm">RGM <span class="marcador-obrigatorio" aria-hidden="true">*</span><span
+          <label class="rotulo-campo" for="email-aluno">E-mail <span class="marcador-obrigatorio" aria-hidden="true">*</span><span
               class="oculto-visualmente"> (obrigatório)</span></label>
-          <input class="campo-texto" type="text" id="rgm" name="rgm" placeholder="Ex: 20231234" inputmode="numeric" autocomplete="username" required maxlength="8" oninput="this.value = this.value.replace(/\D/g, '')">
+          <input class="campo-texto" type="email" id="email-aluno" name="email-aluno" placeholder="voce@aluno.unicid.edu.br" autocomplete="email" required aria-required="true"
+              aria-describedby="nota-obrigatorio" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
         </div>
 
         <div class="grupo-campo">

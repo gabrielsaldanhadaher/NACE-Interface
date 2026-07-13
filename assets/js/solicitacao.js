@@ -119,6 +119,10 @@ form.addEventListener('submit', function (e) {
 
   // tudo ok — aqui você envia o form
   alert('Solicitação enviada com sucesso!');
-  await reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
-  form.submit();
+  
+  const reqProvaOk = await reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
+
+  if (reqProvaOk) {
+    form.submit();
+  }
 })
