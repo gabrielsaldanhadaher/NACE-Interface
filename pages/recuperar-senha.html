@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha · NACE UNICID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="stylesheet" href="../assets/css/recuperar-senha.css">
+</head>
+
+<body class="corpo-login">
+
+  <a class="pular-conteudo" href="#conteudo-recuperar">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho-site">
+    <div class="cabecalho-conteudo">
+      <div class="marca-nace">
+        <img class="marca-icone" src="../assets/img/nace-logo.png" alt="NACE · Núcleo de Acessibilidade — UNICID" width="56" height="56">
+        <img class="marca-unicid" src="../assets/img/unicid-logo.png" alt="UNICID · Universidade Cidade de São Paulo" width="150">
+      </div>
+      <p class="marca-selo">
+        <span class="selo-ponto" aria-hidden="true"></span>
+        NACE · Núcleo de Acessibilidade
+      </p>
+    </div>
+  </header>
+
+  <main id="conteudo-recuperar" class="conteudo-login">
+
+    <!-- Etapa 1: formulário -->
+    <section class="cartao-login" aria-labelledby="titulo-recuperar" id="etapa-formulario">
+      <span class="etiqueta-pagina etiqueta-login">Acesso ao portal</span>
+      <h1 id="titulo-recuperar" class="titulo-login">Recuperar senha</h1>
+      <p class="descricao-login">Informe seu RGM e o e-mail cadastrado. Enviaremos um link para você criar uma nova
+        senha.</p>
+
+      <form class="formulario-login" action=" " method="post" aria-label="Formulário de recuperação de senha"
+        novalidate>
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="rgm-recuperar">RGM <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="text" id="rgm-recuperar" name="rgm" placeholder="Ex: 20231234"
+            inputmode="numeric" autocomplete="username" required aria-required="true" pattern="\d{0,8}" maxlength="8" oninput="this.value = this.value.replace(/\D/g, '')">
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="email-recuperar">E-mail cadastrado <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="email" id="email-recuperar" name="email"
+            placeholder="voce@aluno.unicid.edu.br" autocomplete="email" required aria-required="true"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+" aria-describedby="erro-email">
+          <p id="erro-email" class="texto-erro oculto" role="alert">Informe um e-mail válido.</p>
+        </div>
+
+        <button class="botao-enviar botao-login" type="submit">Enviar link de recuperação</button>
+      </form>
+
+      <div class="acoes-login">
+        <a class="link-login" href="../index.html">Voltar para o login</a>
+        <span class="separador-login" aria-hidden="true">·</span>
+        <a class="link-login" href="./cadastro.html">Primeiro acesso</a>
+      </div>
+
+      <p class="ajuda-login">Problemas para acessar? Escreva para
+        <a class="link-privacidade" href="mailto:nace@unicid.edu.br"><span>nace@unicid.edu.br</span></a>.</p>
+    </section>
+
+    <!-- Etapa 2: confirmação (oculta por padrão; exibida via JS após envio) -->
+    <section class="cartao-login oculto" aria-labelledby="titulo-confirmacao" id="etapa-confirmacao">
+      <span class="etiqueta-pagina etiqueta-login">Verifique seu e-mail</span>
+      <h1 id="titulo-confirmacao" class="titulo-login">Enviamos as instruções</h1>
+      <p class="descricao-login">Se o RGM informado estiver cadastrado, você receberá um e-mail com o link para criar
+        uma nova senha. O link expira em 30 minutos.</p>
+
+      <button class="botao-secundario" type="button" id="botao-reenviar">Reenviar e-mail</button>
+      <a class="link-login link-central" href="#">Voltar para o login</a>
+    </section>
+
+  </main>
+
+  <footer class="rodape-site">
+    <p class="rodape-texto">NACE · Núcleo de Acessibilidade — UNICID · Universidade Cidade de São Paulo</p>
+    <p class="rodape-contato"><a class="rodape-link" href="mailto:nace@unicid.edu.br"><span >nace@unicid.edu.br</span></a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var formulario = document.querySelector('#etapa-formulario .formulario-login');
+      var etapaFormulario = document.getElementById('etapa-formulario');
+      var etapaConfirmacao = document.getElementById('etapa-confirmacao');
+      if (formulario) {
+        formulario.addEventListener('submit', function (evento) {
+          evento.preventDefault();
+          etapaFormulario.classList.add('oculto');
+          etapaConfirmacao.classList.remove('oculto');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

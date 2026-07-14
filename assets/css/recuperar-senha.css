@@ -1,0 +1,46 @@
+/* ===========================
+   Recuperação de senha
+=========================== */
+
+.oculto {
+    display: none;
+}
+
+.texto-erro {
+    margin-top: .4rem;
+    font-size: .82rem;
+    color: var(--cor-erro);
+}
+
+.botao-secundario {
+    width: 100%;
+    margin-top: .5rem;
+    padding: .85rem 1.75rem;
+    border: 1px solid var(--cor-teal);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--cor-teal-escuro);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.botao-secundario:hover {
+    background: var(--cor-teal);
+    color: var(--cor-branco);
+}
+
+.link-central {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+#etapa-confirmacao {
+    text-align: center;
+}
+
+#etapa-confirmacao .descricao-login {
+    margin-bottom: 2rem;
+}
