@@ -18,7 +18,7 @@ import {
 
 const form = document.querySelector('.formulario-nace')
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', async function (e) {
   e.preventDefault()
 
   // campos de texto obrigatórios
@@ -123,6 +123,7 @@ form.addEventListener('submit', function (e) {
   const reqProvaOk = await reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes);
 
   if (reqProvaOk) {
+    reqProvaOk;
     form.submit();
   }
 })

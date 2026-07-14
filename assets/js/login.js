@@ -1,8 +1,9 @@
 import { validateEmail, validatePassword } from './verify.js';
+import { loginUsuario } from './APIs-POST.js'
 
 const formLogin = document.querySelector(".formulario-login");
 
-formLogin.addEventListener("submit", function (e) {
+formLogin.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const email = document.getElementById("email-aluno").value.trim();
@@ -18,16 +19,12 @@ formLogin.addEventListener("submit", function (e) {
         alert("Preencha o campo Senha.");
         document.getElementById("senha").focus();
         return;
-    }
-
-
-  // tudo ok
+    };
     
-
     const loginOk = await loginUsuario(email, senhaLogin);
 
     if (loginOk) {
-        // formLogin.submit();
+        loginOk;
         window.location.href = "pages/solicitacao-prova.html";
     }
 });
