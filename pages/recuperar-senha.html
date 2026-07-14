@@ -77,7 +77,7 @@
         uma nova senha. O link expira em 30 minutos.</p>
 
       <button class="botao-secundario" type="button" id="botao-reenviar">Reenviar e-mail</button>
-      <a class="link-login link-central" href="#">Voltar para o login</a>
+      <a class="link-login link-central" href="../index.html">Voltar para o login</a>
     </section>
 
   </main>
@@ -87,7 +87,10 @@
     <p class="rodape-contato"><a class="rodape-link" href="mailto:nace@unicid.edu.br"><span >nace@unicid.edu.br</span></a></p>
   </footer>
 
-  <script>
+
+
+  <script type="module">
+    import { recuperarSenha } from '../assets/js/recuperar-senha.js';
     (function () {
       var formulario = document.querySelector('#etapa-formulario .formulario-login');
       var etapaFormulario = document.getElementById('etapa-formulario');
@@ -95,8 +98,15 @@
       if (formulario) {
         formulario.addEventListener('submit', function (evento) {
           evento.preventDefault();
-          etapaFormulario.classList.add('oculto');
-          etapaConfirmacao.classList.remove('oculto');
+          const emailInput = document.getElementById('email-recuperar').value.trim();
+          const rgmInput = document.getElementById('rgm-recuperar').value.trim();
+          const sucesso = recuperarSenha(emailInput, rgmInput);
+          if (!sucesso) {
+            return;
+          }else if (sucesso) {
+            etapaFormulario.classList.add('oculto');
+            etapaConfirmacao.classList.remove('oculto');
+          }
         });
       }
     })();

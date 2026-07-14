@@ -1,7 +1,3 @@
-// const btnCadastrar = document.getElementById("botao-cadastro");
-
-// btnCadastrar.addEventListener("click", cadastroUsuario);
-
 
 export async function reqProva(nome, email, rgm, telefone, curso, coordenador, turno, data, professor, algumaMarcadaCondicao, algumaMarcada, laudo, consentimento, observacoes) {
 
