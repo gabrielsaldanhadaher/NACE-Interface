@@ -131,13 +131,17 @@ export async function loginUsuario(email_login, senha_login) {
             body: JSON.stringify(login)
         });
 
+        const data = await resposta.json();
+
+        const token = data.token;
+
+        console.log("Token recebido:", token);
+
         if (!resposta.ok){
             throw new Error(`Erro ao realizar login. Status: ${resposta.status}`);
         }
 
-        const dados = await resposta.json();
-
-        alert(dados.mensagem || "Login realizado com sucesso.");
+        alert(data.mensagem || "Login realizado com sucesso.");
         return true;
 
     } catch (erro) {
