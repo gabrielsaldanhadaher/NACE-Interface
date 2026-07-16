@@ -13,7 +13,8 @@ import {
   validateHealthCondition,
   validateAccessibility,
   validateLaudo,
-  validateConsent
+  validateConsent,
+  validateEmailProfessor
 } from './verify.js'
 
 const form = document.querySelector('.formulario-nace')
@@ -34,6 +35,7 @@ form.addEventListener('submit', async function (e) {
   const data = document.getElementById('data-prova').value
   const consentimento = document.getElementById('consentimento-lgpd').checked
   const observacoes = document.getElementById('observacoes').value.trim()
+  const emailProfessor = document.getElementById('email-professor').value.trim()
 
   const checkboxesNecessidade = document.querySelectorAll('input[type="checkbox"][name^="necessidade-"]')
   const algumaMarcada = Array.from(checkboxesNecessidade).some(cb => cb.checked)
@@ -56,6 +58,12 @@ form.addEventListener('submit', async function (e) {
   if (!validateEmail(email)) {
     alert('Preencha o campo E-mail com um endereço válido.')
     document.getElementById('email-aluno').focus()
+    return
+  }
+
+  if (!validateEmailProfessor(emailProfessor)) {
+    alert('Preencha o campo E-mail do professor com um endereço válido da Unicid.')
+    document.getElementById('email-professor').focus()
     return
   }
 

@@ -21,6 +21,13 @@ export function validateEmail(email){
     return true;
 }
 
+export function validateEmailProfessor(emailProfessor){
+    if (!emailProfessor || !/^[^\s@]+@professor\.unicid\.edu\.br$/.test(emailProfessor)) { // o test() verifica se o email está no formato correto
+        return false;
+    }
+    return true;
+}
+
 export function validatePhone(telefone){
     if (telefone !== '' && telefone.length !== 11) {
     return false;

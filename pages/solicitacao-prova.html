@@ -204,9 +204,7 @@
               <option>12</option>
             </select>
           </div>
-        </div>
-
-        <div class="grade-campos grade-campos-3">
+        
           <div class="grupo-campo">
             <label class="rotulo-campo" for="disciplina">Disciplina / Matéria <span class="marcador-obrigatorio"
                 aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
@@ -219,24 +217,29 @@
             <input class="campo-texto" type="text" id="professor" name="professor" placeholder="Nome do professor"
               required aria-required="true" aria-describedby="nota-obrigatorio">
           </div>
+            <div class="grupo-campo">
+            <label class="rotulo-campo" for="email-professor">E-mail do professor <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+            <input class="campo-texto" type="email" id="email-professor" name="email-professor"
+              placeholder="voce@professor.unicid.edu.br" autocomplete="email" required aria-required="true"
+              aria-describedby="nota-obrigatorio" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+          </div>
+          <div class="grupo-campo">
+            <label class="rotulo-campo" for="turno">Turno <span class="marcador-obrigatorio"
+                aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <select class="campo-select" id="turno" name="turno" required aria-required="true" aria-describedby="nota-obrigatorio">
+            <option value="" selected disabled>Selecione</option>
+            <option>Matutino</option>
+            <option>Vespertino</option>
+            <option>Noturno</option>
+          </select>
+          </div>
           <div class="grupo-campo">
             <label class="rotulo-campo" for="data-prova">Data da prova <span class="marcador-obrigatorio"
                 aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
             <input class="campo-texto" type="date" id="data-prova" name="data-prova" required aria-required="true"
               aria-describedby="nota-obrigatorio">
           </div>
-        </div>
-
-        <div class="grupo-campo">
-          <label class="rotulo-campo" for="turno">Turno <span class="marcador-obrigatorio"
-              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
-          <select class="campo-select" id="turno" name="turno" required aria-required="true"
-            aria-describedby="nota-obrigatorio">
-            <option value="" selected disabled>Selecione</option>
-            <option>Matutino</option>
-            <option>Vespertino</option>
-            <option>Noturno</option>
-          </select>
         </div>
 
         <fieldset class="grupo-categoria">
