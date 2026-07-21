@@ -150,3 +150,50 @@ export async function loginUsuario(email_login, senha_login) {
 
 
 };
+
+export async function loginAdmin(email_login, senha_login) {
+    
+    const URLLA = "";
+
+    const login = {
+        email: email_login,
+        password: senha_login
+    };
+
+    try{
+        console.log("Enviando requisição de login:", login);
+
+        const resposta = await fetch(URLL, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(login)
+        });
+
+        const data = await resposta.json();
+
+        const token = data.token;
+
+        console.log("Token recebido:", token);
+
+        if (!resposta.ok){
+            throw new Error(`Erro ao realizar login. Status: ${resposta.status}`);
+        }
+
+        alert(data.mensagem || "Login realizado com sucesso.");
+        return true;
+
+    } catch (erro) {
+
+        console.error(erro);
+        alert(erro.message || "Erro ao realizar login.");
+        return false;
+
+    };
+
+
+};

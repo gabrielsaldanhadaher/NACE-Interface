@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso administrativo · NACE UNICID</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/login-admin.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
+
+</head>
+
+<body class="corpo-login">
+
+  <a class="pular-conteudo" href="#conteudo-login-admin">Pular para o conteúdo principal</a>
+
+  <header class="cabecalho-site">
+    <div class="cabecalho-conteudo">
+      <div class="marca-nace">
+        <img class="marca-icone" src="../assets/img/nace-logo.png" alt="NACE · Núcleo de Acessibilidade — UNICID" width="56" height="56">
+        <img class="marca-unicid" src="../assets/img/unicid-logo.png" alt="UNICID · Universidade Cidade de São Paulo" width="150">
+      </div>
+      <p class="marca-selo marca-selo-admin">
+        <span class="selo-ponto selo-ponto-admin" aria-hidden="true"></span>
+        NACE · Painel administrativo
+      </p>
+    </div>
+  </header>
+
+  <main id="conteudo-login-admin" class="conteudo-login">
+    <section class="cartao-login" aria-labelledby="titulo-login-admin">
+      <span class="etiqueta-pagina etiqueta-admin">Acesso restrito</span>
+      <h1 id="titulo-login-admin" class="titulo-login">Entrar no painel administrativo</h1>
+      <p class="descricao-login">Uso exclusivo da equipe do NACE. Use seu e-mail institucional e senha de
+        administrador.</p>
+
+      <form class="formulario-login" action=" " method="post" aria-label="Formulário de acesso administrativo"
+        novalidate>
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="email-admin">E-mail institucional <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <input class="campo-texto" type="email" id="email-admin" name="email" placeholder="voce@unicid.edu.br"
+            autocomplete="username" required aria-required="true">
+        </div>
+
+        <div class="grupo-campo">
+          <label class="rotulo-campo" for="senha-admin">Senha <span class="marcador-obrigatorio"
+              aria-hidden="true">*</span><span class="oculto-visualmente"> (obrigatório)</span></label>
+          <div class="campo-senha">
+            <input class="campo-texto" type="password" id="senha-admin" name="senha" placeholder="Sua senha"
+              autocomplete="current-password" required aria-required="true">
+            <button class="botao-ver-senha" type="button" aria-pressed="false"
+              aria-label="Mostrar senha">Mostrar</button>
+          </div>
+        </div>
+
+        <!-- <div class="grupo-campo-checkbox">
+          <input class="campo-checkbox" type="checkbox" id="manter-conectado" name="manter-conectado">
+          <label class="rotulo-checkbox" for="manter-conectado">Manter-me conectado neste dispositivo</label>
+        </div> -->
+
+        <button class="botao-enviar botao-login botao-admin" type="submit">Entrar</button>
+      </form>
+
+      <div class="acoes-login">
+        <a class="link-login" href="recuperar-senha.html">Esqueci minha senha</a>
+        <span class="separador-login" aria-hidden="true">·</span>
+        <a class="link-login" href="../index.html">Sou aluno</a>
+      </div>
+
+      <p class="ajuda-login">Precisa de acesso administrativo? Escreva para
+        <a class="link-privacidade" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a>.</p>
+    </section>
+  </main>
+
+  <footer class="rodape-site">
+    <p class="rodape-texto">NACE · Núcleo de Acessibilidade — UNICID · Universidade Cidade de São Paulo</p>
+    <p class="rodape-contato"><a class="rodape-link" href="mailto:nace@unicid.edu.br">nace@unicid.edu.br</a></p>
+  </footer>
+
+  <script type="module">
+    import { loginUsuarioAdmin } from '../assets/js/login-admin.js';
+    (function () {
+      loginUsuarioAdmin();
+      var botao = document.querySelector('.botao-ver-senha');
+      var campo = document.getElementById('senha-admin');
+      if (botao && campo) {
+        botao.addEventListener('click', function () {
+          var visivel = campo.type === 'text';
+          campo.type = visivel ? 'password' : 'text';
+          botao.textContent = visivel ? 'Mostrar' : 'Ocultar';
+          botao.setAttribute('aria-pressed', String(!visivel));
+          botao.setAttribute('aria-label', visivel ? 'Mostrar senha' : 'Ocultar senha');
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

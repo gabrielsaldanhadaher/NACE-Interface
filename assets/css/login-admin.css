@@ -1,0 +1,44 @@
+/* Reaproveita as variáveis e classes-base de login-aluno.css. */
+@import url("login.css");
+
+.marca-selo-admin {
+  background-color: #eef2f8;
+  color: var(--cor-navy);
+}
+
+.selo-ponto-admin {
+  background-color: var(--cor-navy-claro);
+}
+
+.etiqueta-admin {
+  background-color: #eef2f8;
+  color: var(--cor-navy);
+}
+
+.grupo-campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0.25rem;
+}
+
+.campo-checkbox {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--cor-teal-escuro);
+}
+
+.rotulo-checkbox {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+}
+
+.botao-admin {
+  background-color: var(--cor-navy);
+  color: var(--cor-branco);
+  margin-top: 1.25rem;
+}
+
+.botao-admin:hover {
+  background-color: var(--cor-navy-escuro);
+}
